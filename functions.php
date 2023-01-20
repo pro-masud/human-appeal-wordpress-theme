@@ -138,6 +138,11 @@ add_action( 'widgets_init', 'human_appeal_widgets_init' );
  * Enqueue scripts and styles.
  */
 function human_appeal_scripts() {
+
+	wp_enqueue_style( 'human-appeal-font-awasome', get_template_directory_uri() . "./access/css/all.css", array(), _S_VERSION );
+	wp_enqueue_style( 'human-appeal-bootstrap', get_template_directory_uri() . "./access/css/bootstrap.min.css", array(), _S_VERSION );
+	wp_enqueue_style( 'human-appeal-t-style', get_template_directory_uri() . "./access/css/style.css", array(), _S_VERSION );
+	wp_enqueue_style( 'human-appeal-responsive', get_template_directory_uri() . "./access/css/responsive.css", array(), _S_VERSION );
 	wp_enqueue_style( 'human-appeal-style', get_stylesheet_uri(), array(), _S_VERSION );
 	wp_style_add_data( 'human-appeal-style', 'rtl', 'replace' );
 
