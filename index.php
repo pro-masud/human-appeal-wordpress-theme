@@ -38,7 +38,17 @@ get_header();
             <div class="row">
             	  <div class="col-12">
                     <div class="pagination">
-                        <ul>
+
+                    	<?php the_posts_pagination([
+                    		'screen_reader_text'	=> '',
+                    		'type'					=> 'list',
+                    		'prev_text'				=> '<i class="fa-sharp fa-solid fa-arrow-left"></i>',
+                    		'next_text'				=> '<i class="fa-sharp fa-solid fa-arrow-right"></i>',
+                    	]); ?>
+
+
+
+                        <!-- <ul>
                             <li><a href="#"><i class="fa-sharp fa-solid fa-arrow-left"></i></a></li>
                             <li><a href="#">1</a></li>
                             <li><a href="#">2</a></li>
@@ -46,7 +56,7 @@ get_header();
                             <li><a href="#">4</a></li>
                             <li><a href="#">5</a></li>
                             <li><a href="#"><i class="fa-sharp fa-solid fa-arrow-right"></i></a></li>
-                        </ul>
+                        </ul> -->
                     </div>
                 </div>
             </div>

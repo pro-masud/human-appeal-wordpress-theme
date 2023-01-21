@@ -2,7 +2,9 @@
     "compilerOptions": {
         "baseUrl": "./",
         "paths": {
-            "@extendify/*": ["src/*"]
+            "@library/*": ["./src/Library/*"],
+            "@onboarding/*": ["./src/Onboarding/*"],
+            "@assist/*": ["./src/Assist/*"]
         }
     }
 }

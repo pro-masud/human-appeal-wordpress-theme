@@ -50,7 +50,8 @@ function human_appeal_setup() {
 	register_nav_menus(
 		array(
 			'menu-1' => esc_html__( 'Primary', 'human-appeal' ),
-		)
+			'main-menu'	=> esc_html__( 'Main Menu', 'human-appeal' ),
+		),
 	);
 
 	/*
@@ -154,6 +155,7 @@ function human_appeal_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'human_appeal_scripts' );
 
+
 /**
  * Implement the Custom Header feature.
  */
@@ -180,4 +182,25 @@ require get_template_directory() . '/inc/customizer.php';
 if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
+
+
+/* bootstrap header main menu li a class adding this action here now*/
+	function add_class_li($classes, $item, $args) {
+	    if (isset($args->li_class)) {
+	        $classes[] = $args->li_class;
+	    }
+	    if (isset($args->a_class)) {
+	        $classes[] = $args->a_class;
+	    }
+	    if (isset($args->active_class) && in_array('current-menu_item', $classes)) {
+	        $classes[] = $args->active_class;
+	    }
+	    return $classes;
+	}
+	add_filter('nav_menu_css_class', 'add_class_li', 10, 3);
+
+
+	/* Redux framework include here */
+	include"libs/opt/redux-core/framework.php";
+	include"libs/opt/sample/sample-config.php";
 

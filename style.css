@@ -967,3 +967,37 @@ textarea {
 	margin-right: auto;
 	margin-bottom: 1.5em;
 }
+
+/*
+	header ul margin customiza
+*/
+.hader_nav ul{
+	margin: 0px !important;
+}
+.hader_nav ul li a{
+	 font-family: 'Average Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 23px;
+    color: #000000 !important;
+    text-transform: capitalize;
+}
+/*
+	blog page pagination span tag styleing now
+*/
+.pagination ul li span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 10px 16px;
+  color: #D8E9F7;
+  border-radius: 50%;
+  transition: 0.4s;
+  background-color: transparent;
+  color: #333;
+  border: 1px solid #333;
+}
+

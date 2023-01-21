@@ -1,10 +1,10 @@
 === Gutenberg Template and Pattern Library & Redux Framework ===
-Contributors: dovyp, redux, kprovance
+Contributors: kprovance, dovyp, redux
 Tags: patterns, templates, blocks, gutenberg, library, editor, page builder
 Requires at least: 4.0
 Requires PHP: 7.1
-Tested up to: 6.0
-Stable tag: 4.3.14
+Tested up to: 6.1
+Stable tag: 4.3.23
 License: GPL-3.0+
 License URI: http://www.gnu.org/licenses/gpl-3.0.txt
 
@@ -80,8 +80,6 @@ You can also contribute code via our <a href="https://github.com/reduxframework/
 <h4>🔐 Privacy</h4>
 Redux does not interact with end users on your website. Our templates will continue to work even if Redux is uninstalled. If a product is using Redux the option panel will cease to function without Redux.
 
-Redux utilizes [AppSero](https://appsero.com/) for account management as well as to enable our premium offerings. You can find their privacy policy here: [https://appsero.com/privacy-policy/](https://appsero.com/privacy-policy/). Activation of Redux is not necessary, but additional features such as Google Font Updates and increased access to the Gutenberg block template, layout, and pattern library will be limited.
-
 The Redux plugin uses a custom API to fetch our content library and our Gutenberg block templates, layouts, and patterns. To improve the service and stability we store logs which may or may not contain the following:
 <ul>
 <li>browser type</li>
@@ -91,7 +89,7 @@ The Redux plugin uses a custom API to fetch our content library and our Gutenber
 <li>anonymized IP address</li>
 </ul>
 
-API requests are only made when a user clicks on the Library button, launches the Redux Challenge, or opts into Google Font updates.
+API requests are only made when a user clicks on the Library button or opts into Google Font updates.
 
 For more details on our privacy policy: [https://redux.io/privacy](https://redux.io/privacy)
 For more details on our terms and conditions: [https://redux.io/terms](https://redux.io/terms)
@@ -105,6 +103,79 @@ Once Installed and Activated you will be invited to Activate your Redux account.
 If you want, you can use the [Gutenberg](https://wordpress.org/plugins/gutenberg/) plugin to get bleeding-edge experiments by the Gutenberg team.
 
 == Changelog ==
+= 4.3.23 =
+* Additional work to make `custom_fonts` override old standalone extension version.
+* Release date: January 20, 2023
+
+= 4.3.23 =
+* Tweaked Custom Fonts extension to avoid conflicts with older standalone extension.
+* Update: Extendify Library 1.2.4
+* Release date: January 20, 2023
+
+= 4.3.22 =
+* Added: Custom Fonts extension [https://devs.redux.io/core-extensions/google-maps.html](https://devs.redux.io/core-extension/custom-fonts.html)
+* Fixed: Metaboxes `post_format` selections not responding to clicks when Gutenberg is active due to class name changes.
+* Fixed: Custom font data added via filter would trigger a warning if not an array.
+* Update: Extendify Library 1.2.3
+* Release date: January 19, 2023
+
+= 4.3.21 =
+* Added: Google Maps extension.
+* Fixed: Widget area UI improperly aligned when `dev_mode` set to `false`.
+* Fixed: `spinner` field not outputting `output` data.
+* Fixed: Metaboxes CSS causing layout issues when `dev_mode` set to `false`.
+* Update: Extendify Library 1.2.1
+* Update: Font Awesome 6.2.1
+* Release date: December 05, 2022
+
+= 4.3.20 =
+* Added: Widget Areas extension (for use with Classic Widgets only).
+* Fixed: `spinner` field returning JavaScript error.
+* Fixed: `required` not working outside a `repeater` when `repeater` field is loaded somewhere in the project.
+* Fixed: JS error when `typography` `font-style` set to `false`.
+* Updated: Removed registration verbiage from Google Fonts update notice.
+* Updated: Extendify Library 1.0.1
+* Release date: November 2, 2022
+
+= 4.3.19 =
+* Fixed: Extendify menu item appearing when it should not.
+* Fixed: Blank page template would cause fatal error.
+* Release date: September 30, 2022
+
+= 4.3.18 =
+* New: Typography `weights` argument to override standard default weights.
+* Updated Extendify Library 0.10.2
+* Updated: Font Awesome 6.2.0
+* Modified: Attempt to override old theme embedded extensions that use the 3.x loading method.
+* Fixed: Social Profiles in metaboxes, hopefully.
+* Fixed: `slides` field not showing image upon select. Thanks @animeiswrong
+* Removed: Social Profiles Widget (use the shortcode in HTML widget instead. See docs).
+* Removed: Redux template library (use Extendify template library instead).
+* Removed: Appsero registration for Redux Pro.
+* Modified: Cleanup of old or outdated code.
+* Release date: September 26, 2022
+
+= 4.3.17 =
+* Added: Social Profiles extension. [https://devs.redux.io/core-extensions/social-profiles.html](https://devs.redux.io/core-extensions/social-profiles.html)
+* Fixed: Metabox post types and templates selection inoperative on new posts.
+* Updated: Extendify Library.
+* Release date: August 22, 2002
+
+= 4.3.16 =
+* Added: Accordion extension. [https://devs.redux.io/core-extensions/accordion.html](https://devs.redux.io/core-extensions/accordion.html)
+* Added: JS Button extension. [https://devs.redux.io/core-extensions/js-button.html](https://devs.redux.io/core-extensions/js-button.html)
+* Fixed: Validation messages dismissed when using `ace_editor` field after `redux_change` event.
+* Updated: Extendify Library.
+* Release date: July 21, 2022
+
+= 4.3.15 =
+* Added: Multi Media extension. [https://devs.redux.io/core-extensions/multi-media.html](https://devs.redux.io/core-extensions/multi-media.html)
+* Added: DateTime extension. [https://devs.redux.io/core-extensions/date-time-picker.html](https://devs.redux.io/core-extensions/date-time-picker.html)
+* Fixed: Deprecation error surrounding `add_menu_page` in WordPress 6.0.
+* Fixed: `undefined` unit entry in `letter-spacing` subfield of the `typography` field.
+* Modified: Deprecation notices for outdated API.
+* Updated: Extendify Library.
+* Release date: June 21, 2022
 
 = 4.3.14 =
 * New: `typography` field supports individual unit types for subfields that support them (font-size, line-height, etc.)  See: [https://devs.redux.io/core-fields/typography.html](https://devs.redux.io/core-fields/typography.html)

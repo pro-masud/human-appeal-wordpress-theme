@@ -96,7 +96,7 @@ var AUTOPREFIXER_BROWSERS = ['last 2 version', '> 1%', 'ie > 10', 'ie_mob > 10',
 var gulp = require( 'gulp' ); // Gulp of-course.
 
 // CSS related plugins.
-var sass = require( 'gulp-sass' )(require('node-sass')); // Gulp pluign for Sass compilation.
+var sass = require( 'gulp-sass' )( require( 'node-sass' ) ); // Gulp pluign for Sass compilation.
 //sass.compiler = require( 'node-sass' );
 
 var minifycss = require( 'gulp-uglifycss' ); // Minifies CSS files.
@@ -125,8 +125,8 @@ var fs = require( 'fs' );
 var path = require( 'path' );
 var merge = require( 'merge-stream' );
 var sassPackager = require( 'gulp-sass-packager' );
-var composer = require('gulp-composer');
-var del = require('del');
+var composer = require( 'gulp-composer' );
+var del = require( 'del' );
 
 /**
  * Task: `browser-sync`.
@@ -245,7 +245,7 @@ function reduxStyles() {
 	lib_dirs.map(
 		function( folder ) {
 			var the_path = './redux-core/inc/lib/' + folder + '/';
-			folder       = folder.replace( '_', '-' );
+			folder = folder.replace( '_', '-' );
 
 			return process_scss( the_path + folder + '.scss', the_path );
 		}
@@ -352,7 +352,7 @@ function extFieldJS( done ) {
 	done();
 }
 
-function reduxLibJS ( done ) {
+function reduxLibJS( done ) {
 	var field_dirs = getFolders( 'redux-core/inc/lib' );
 
 	field_dirs.map(
@@ -564,7 +564,6 @@ function reduxJS( done ) {
  *     4. Uglifes/Minifies the JS file and generates vendors.min.js
  */
 function vendorsJS( done ) {
-
 	gulp.src( jsVendorSRC )
 	.pipe( concat( jsVendorFile + '.js' ) )
 	.pipe( lineec() ) // Consistent Line Endings for non UNIX systems.
@@ -598,19 +597,18 @@ function vendorsJS( done ) {
  * again, do it with the command `gulp images`.
  */
 function reduxImages( done ) {
-
 	gulp.src( imagesSRC )
-	.pipe(
-		imagemin(
-			{
-				progressive: true,
-				optimizationLevel: 3, // 0-7 low-high
-				interlaced: true,
-				svgoPlugins: [{removeViewBox: false}]
-			}
+		.pipe(
+			imagemin(
+				{
+					progressive: true,
+					optimizationLevel: 3, // 0-7 low-high
+					interlaced: true,
+					svgoPlugins: [{removeViewBox: false}]
+				}
+			)
 		)
-	)
-	.pipe( gulp.dest( imagesDestination ) );
+		.pipe( gulp.dest( imagesDestination ) );
 
 	done();
 }
@@ -626,27 +624,28 @@ function reduxImages( done ) {
  */
 function translate() {
 	return gulp.src( projectPHPWatchFiles )
-	.pipe( sort() )
-	.pipe(
-		wpPot(
-			{
-				domain: text_domain,
-				destFile: destFile,
-				package: packageName,
-				bugReport: bugReport,
-				lastTranslator: lastTranslator,
-				team: team
-			}
+		.pipe( sort() )
+		.pipe(
+			wpPot(
+				{
+					domain: text_domain,
+					destFile: destFile,
+					package: packageName,
+					bugReport: bugReport,
+					lastTranslator: lastTranslator,
+					team: team
+				}
+			)
 		)
-	)
-	.pipe( gulp.dest( translatePath + '/' + destFile ) );
+		.pipe( gulp.dest( translatePath + '/' + destFile ) );
 }
 
-function installFontawesome( done ){
-	composer(  'update' );
+function installFontawesome( done ) {
+	composer( 'update' );
 
-	del([
+	del( [
 		'redux-core/assets/font-awesome/*.*',
+		'redux-core/assets/font-awesome/.github',
 		'redux-core/assets/font-awesome/js',
 		'redux-core/assets/font-awesome/metadata',
 		'redux-core/assets/font-awesome/js-packages',
@@ -662,7 +661,7 @@ function installFontawesome( done ){
 		'redux-core/assets/font-awesome/css/svg-with-js.*',
 		'redux-core/assets/font-awesome/css/v4-font-face.*',
 		'redux-core/assets/font-awesome/css/v5-font-face.*'
-	]);
+	] );
 
 	done();
 }
@@ -679,94 +678,6 @@ gulp.task( 'images', reduxImages );
 gulp.task( 'translate', translate );
 gulp.task( 'composer', installFontawesome );
 
-function cleanBuild() {
-	return gulp.src( './build', {read: false, allowEmpty: true} )
-	.pipe( clean() );
-}
-
-function makeBuild() {
-	return gulp.src( [
-		'./**/*.*',
-		'!./assets/js/*.dev.*',
-		'!./node_modules/**/*.*',
-		'!./src/**/*.*',
-		'!./.wordpress-org/**/*.*',
-		'!./.github/**/*.*',
-		'!./build/**/*.zip',
-		'!./gulpfile.js',
-		'!./yarn.lock',
-		'!./yarn-error.log',
-		'!.babelrc',
-		'!./languages/**/*',
-		'!.eslintrc',
-		'!./package-lock.json',
-		'!./composer-lock.json',
-		'!./composer.lock',
-		'!./webpack.*.js',
-		'!./jest.config.js',
-		'!./**/jest.config.js',
-		'!./**/babel.config.js',
-		'!./package.json',
-		'!./composer.json',
-		'!./ruleset.xml',
-		'!./codestyles/*',
-		'!./local_developer.txt',
-		'!./jsconfig.json',
-		'!./vendor/**/*',
-		'!./tests/**/*',
-		'!./redux-core/assets/scss/**/*',
-		'!./redux-core/assets/img/raw/**/*',
-		'!./redux-templates/src/**/*',
-		'!./redux-templates/classes/*.json',
-	] ).pipe( gulp.dest( 'build/' ) );
-}
-
-function admin_css() {
-	return gulp.src( ['./redux-templates/src/scss/*.scss'] )
-	.pipe( sass() )
-	.pipe( autoprefixer( {
-		cascade: false
-	} ) )
-	.pipe( minifyCSS() )
-	.pipe( concat( 'admin.min.css' ) )
-	.pipe( gulp.dest( 'redux-templates/assets/css/' ) );
-}
-
-
-function minify_js() {
-	return gulp.src( ['./build/redux-templates/assets/js/*.js'] )
-	.pipe( minifyJS( {
-		ext: {
-			src: '.js',
-			min: '.min.js'
-		},
-		exclude: ['tasks'],
-		ignoreFiles: ['redux-templates.min.js', '*-min.js', '*.min.js']
-	} ) )
-	.pipe( gulp.dest( ['./build/redux-templates/assets/js/'] ) );
-
-}
-
-
-function makeZip() {
-	return gulp.src( './build/**/*.*' )
-	.pipe( zip( './build/redux.zip' ) )
-	.pipe( gulp.dest( './' ) );
-}
-
-gulp.task( 'makeBuild', makeBuild );
-gulp.task( 'admin_css', admin_css );
-gulp.task( 'minify_js', minify_js );
-gulp.task( 'cleanBuild', cleanBuild );
-gulp.task( 'makeZip', makeZip );
-
-gulp.task( 'templates', gulp.series(
-	'cleanBuild',
-	'makeBuild',
-	'admin_css',
-	'minify_js',
-	'makeZip'
-) );
 /**
  * Watch Tasks.
  *

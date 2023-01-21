@@ -1,5 +1,79 @@
 # Redux Changelog
 
+## 4.3.24
+* Additional work to make `custom_fonts` override old standalone extension version.
+* Release date: January 20, 2023
+
+## 4.3.23
+* Tweaked Custom Fonts extension to avoid conflicts with older standalone extension.
+* Update: Extendify Library 1.2.4
+* Release date: January 20, 2023 
+
+## 4.3.22
+* Added: Custom Fonts extension [https://devs.redux.io/core-extensions/google-maps.html](https://devs.redux.io/core-extension/custom-fonts.html)
+* Fixed: #3928 - Metaboxes `post_format` selections not responding to clicks when Gutenberg is active due to class name changes.
+* Fixed: Custom font data added via filter would trigger a warning if not an array.
+* Update: Extendify Library 1.2.3 
+* Release date: January 19, 2023
+
+## 4.3.21
+* Added: Google Maps extension [https://devs.redux.io/core-extensions/google-maps.html](https://devs.redux.io/core-extensions/google-maps.html)
+* Fixed: Widget area UI improperly aligned when `dev_mode` set to `false`.
+* Fixed: `spinner` field not outputting `output` data.
+* Fixed: Metaboxes CSS causing layout issues when `dev_mode` set to `false`.
+* Update: Extendify Library 1.2.1
+* Update: Font Awesome 6.2.1
+* Release date: December 05, 2022
+
+## 4.3.20
+* Fixed: `spinner` field returning JavaScript error.
+* Fixed: `required` not working outside a `repeater` when `repeater` field is loaded somewhere in the project.
+* Fixed: JS error when `typography` `font-style` set to `false`.
+* Updated: Removed registration verbiage from Google Fonts update notice.
+* Added: Widget Areas extension (for use with Classic Widgets only).
+* Updated: Extendify Library 1.0.1
+* Release date: November 02, 2022
+
+## 4.3.19
+* Fixed: Extendify menu item appearing when it should not.
+* Fixed: #3909 - Blank page template would cause fatal error.
+* Release date: September 30, 2022
+ 
+## 4.3.18
+* New: #3903 - Typography `weights` argument to override standard default weights.
+* Updated Extendify Library 0.10.2
+* Updated: Font Awesome 6.2.0
+* Modified: Attempt to override old theme embedded extensions that use the 3.x loading method.
+* Fixed: Social Profiles in metaboxes, hopefully.
+* Fixed: `slides` field not showing image upon select. Thanks @animeiswrong
+* Removed: Social Profiles Widget (use the shortcode in HTML widget instead. See docs).
+* Removed: Redux template library (use Extendify template library instead).
+* Removed: Appsero registration for Redux Pro.
+* Modified: Cleanup of old or outdated code.
+* Release date: September 26, 2022
+
+## 4.3.17
+* Added: Social Profiles extension. [https://devs.redux.io/core-extensions/social-profiles.html](https://devs.redux.io/core-extensions/social-profiles.html)
+* Fixed: Metabox post types and templates selection inoperative on new posts.
+* Updated: Extendify Library.
+* Release date: August 22, 2002
+
+## 4.3.16
+* Added: Accordion extension. [https://devs.redux.io/core-extensions/accordion.html](https://devs.redux.io/core-extensions/accordion.html)
+* Added: JS Button extension. [https://devs.redux.io/core-extensions/js-button.html](https://devs.redux.io/core-extensions/js-button.html)
+* Fixed: #3888 - Validation messages dismissed when using `ace_editor` field after `redux_change` event.
+* Updated: Extendify Library.
+* Release date: July 21, 2022
+
+## 4.3.15
+* Added: Multi Media extension. [https://devs.redux.io/core-extensions/multi-media.html](https://devs.redux.io/core-extensions/multi-media.html)
+* Added: DateTime extension. [https://devs.redux.io/core-extensions/date-time-picker.html](https://devs.redux.io/core-extensions/date-time-picker.html)
+* Fixed: Deprecation error surrounding `add_menu_page` in WordPress 6.0.
+* Fixed: `undefined` unit entry in `letter-spacing` subfield of the `typography` field.
+* Modified: Deprecation notices for outdated API.
+* Updated: Extendify Library.
+* Release date: June 21, 2022
+
 ## 4.3.14
 * New: `typography` field supports individual unit types for subfields that support them (font-size, line-height, etc.)  See: [https://devs.redux.io/core-fields/typography.html](https://devs.redux.io/core-fields/typography.html)
 * Fixed: Redux installed via TGMPA failing with "This plugin does not have a valid header."

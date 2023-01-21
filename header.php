@@ -62,22 +62,17 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse hader_nav" id="navbarNav">
-                <ul  class="navbar-nav">
-                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="foundemessage.html">About us</a></li>
-                    <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="project.html" id="human_appeal" data-bs-toggle="dropdown">Project</a>
-                        <ul class="dropdown-menu">
-                            <li class="nav-item"><a class="nav-link" href="#">project</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#">project</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#">project</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#">project</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#">project</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
-                    <li class="nav-item"><a class="nav-link" href="testmunial.html">Get Involved</a></li>
-                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-                </ul>
+
+            	<?php wp_nav_menu([
+            		'theme_location'	=> 'main-menu',
+            		'container_class'	=> 'hader_nav',
+            		'menu_class'		=> 'navbar-nav',
+            		'menu_id'			=> '',
+            		'li_class' 			=> 'nav-item',
+                    'a_class' 			=> 'nav-link',
+                    'active_class'		=> 'active'
+            	]) ?>
+
                 <form class="form-inline top-btn  ms-auto">
                     <button class="btn">Donete Now</button>
                 </form>
