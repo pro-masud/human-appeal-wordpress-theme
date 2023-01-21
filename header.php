@@ -70,7 +70,8 @@
             		'menu_id'			=> '',
             		'li_class' 			=> 'nav-item',
                     'a_class' 			=> 'nav-link',
-                    'active_class'		=> 'active'
+                    'active_class'		=> 'active',
+                    'fallback_cb'		=> 'null_menu'
             	]) ?>
 
                 <form class="form-inline top-btn  ms-auto">

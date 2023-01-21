@@ -100,6 +100,11 @@ function human_appeal_setup() {
 			'flex-height' => true,
 		)
 	);
+
+	/* main menu fallback cb function here*/
+	function null_menu(){
+		
+	}
 }
 add_action( 'after_setup_theme', 'human_appeal_setup' );
 
