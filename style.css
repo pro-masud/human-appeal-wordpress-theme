@@ -1008,3 +1008,24 @@ textarea {
 	font-size: 13px;
 }
 
+
+
+/* single page comments part styleing now */
+.single-page-com form.commentform p > label{
+	display: block !important;
+}
+.single-page-com form.commentform p > input{
+	width: 100% !important;
+}
+.single-page-com .comment-form-comment p label{
+	font-size: 30px !important;
+}
+.single-page-com textarea#comment{
+	width: 100%;
+	margin-bottom: 30px;
+	margin-right: 20px;
+	padding: 11px 9px;
+	background: rgba(255, 255, 255, 0.9);
+	border-radius: 3px;
+	border: none;
+}

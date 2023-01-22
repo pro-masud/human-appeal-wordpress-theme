@@ -28,6 +28,13 @@ get_header();
                 </div>
             <?php endwhile; ?>
             </div>
+            <div class="row">
+            	<div class="col-lg-6">
+            		<div class="single-page-com">
+            			<?php comments_template() ?>
+            		</div>
+            	</div>
+            </div>
         </div>
     </section>
 
