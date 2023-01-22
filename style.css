@@ -1001,3 +1001,10 @@ textarea {
   border: 1px solid #333;
 }
 
+.post-info strong{
+	font-size: 13px;
+}
+.post-info strong span{
+	font-size: 13px;
+}
+

@@ -1,63 +1,17 @@
-<?php
-/**
- * Template part for displaying posts
- *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
- *
- * @package human_appeal
- */
 
-?>
-
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header class="entry-header">
-		<?php
-		if ( is_singular() ) :
-			the_title( '<h1 class="entry-title">', '</h1>' );
-		else :
-			the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
-		endif;
-
-		if ( 'post' === get_post_type() ) :
-			?>
-			<div class="entry-meta">
-				<?php
-				human_appeal_posted_on();
-				human_appeal_posted_by();
-				?>
-			</div><!-- .entry-meta -->
-		<?php endif; ?>
-	</header><!-- .entry-header -->
-
-	<?php human_appeal_post_thumbnail(); ?>
-
-	<div class="entry-content">
-		<?php
-		the_content(
-			sprintf(
-				wp_kses(
-					/* translators: %s: Name of current post. Only visible to screen readers */
-					__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'human-appeal' ),
-					array(
-						'span' => array(
-							'class' => array(),
-						),
-					)
-				),
-				wp_kses_post( get_the_title() )
-			)
-		);
-
-		wp_link_pages(
-			array(
-				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'human-appeal' ),
-				'after'  => '</div>',
-			)
-		);
-		?>
-	</div><!-- .entry-content -->
-
-	<footer class="entry-footer">
-		<?php human_appeal_entry_footer(); ?>
-	</footer><!-- .entry-footer -->
-</article><!-- #post-<?php the_ID(); ?> -->
+<!-- blog page by default content here -->
+<div class="col-md-4">
+    <div class="post-item">
+        <div class="post-img">
+        	<?php if(has_post_thumbnail()): ?>
+          		<a href="<?php the_permalink(); ?>"><?php echo the_post_thumbnail(); ?></a>
+           	<?php endif; ?>
+        </div>
+        <div class="post-info">
+            <h4><?php the_title(); ?></h4>
+            <strong>Author : <?php the_author(); ?>, <?php the_time('D m, Y'); ?>, Time : <?php The_time('h:m:s'); ?></strong>
+            <p><?php echo wp_trim_words(get_the_content(), 20, null) ?></p>
+            <a href="<?php the_permalink(); ?>">Read More</a>
+        </div>
+    </div>
+</div>

@@ -129,8 +129,6 @@
 
    
 
-    <script src="<?php echo get_template_directory_uri(); ?>./access/js/bootstrap.bundle.min.js"></script>
-    <script src="<?php echo get_template_directory_uri(); ?>./access/js/main.js"></script>
     <?php  wp_footer(); ?>
 </body>
 </html>
